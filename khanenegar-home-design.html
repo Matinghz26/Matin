@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#172c27">
+<title>دعوت‌نامه طراحی خانه | استودیو معماری</title>
+<style>
+:root{--ink:#172c27;--muted:#718078;--paper:#f5f4ef;--card:#fffefa;--line:#dfe5dd;--accent:#b7d36b;--accent-dark:#526b35;--soft:#eaf0e2;--danger:#a13f35}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 8% 8%,#e6eadb 0,transparent 28%),var(--paper);font-family:Tahoma,"Segoe UI",sans-serif;color:var(--ink);line-height:1.8}
+.wrap{max-width:920px;margin:0 auto;padding:28px 18px 54px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800}
+.logo{width:45px;height:45px;border-radius:15px;background:var(--ink);color:var(--accent);display:grid;place-items:center;font-size:22px}
+.brand small{display:block;font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.2px}
+.pill{border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:var(--muted);font-size:12px;background:#ffffff9c}
+.hero{background:var(--ink);color:#fffefa;border-radius:26px;padding:30px;position:relative;overflow:hidden;margin-bottom:20px}
+.hero:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #ffffff20;border-radius:50%;left:-70px;top:-110px;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff05}
+.kicker{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.4px}
+h1{font-size:clamp(24px,4vw,35px);line-height:1.5;margin:7px 0 8px;max-width:620px}
+.hero p{color:#d0d8d1;margin:0;max-width:610px;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:20px 0}
+.step{border:1px solid var(--line);border-radius:14px;padding:11px 12px;background:#ffffffa6;color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px;min-width:0}
+.step .num{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:#e9ece5;font-weight:800;flex-shrink:0}
+.step.active{border-color:var(--ink);background:var(--ink);color:white}
+.step.active .num,.step.done .num{background:var(--accent);color:var(--ink)}
+.step.done{border-color:#c6d5b0;color:var(--accent-dark)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,32px);box-shadow:0 12px 35px #263b2a08}
+.cardhead{display:flex;align-items:flex-start;gap:13px;margin-bottom:24px}
+.icon{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:var(--soft);font-size:20px;flex-shrink:0}
+h2{font-size:21px;margin:0 0 4px}
+.sub{font-size:13px;color:var(--muted);margin:0}
+.panel{display:none}.panel.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{display:flex;flex-direction:column;gap:7px}
+label,.field-label{font-size:13px;font-weight:700}
+input,select,textarea{width:100%;font:inherit;font-size:14px;color:var(--ink);background:#fff;border:1px solid #d9e0d8;border-radius:12px;padding:12px 13px;outline:none;transition:.2s}
+input:focus,select:focus,textarea:focus{border-color:#78964d;box-shadow:0 0 0 3px #b7d36b30}
+textarea{resize:vertical;min-height:100px}
+.hint{font-size:11px;color:var(--muted);font-weight:400}
+.full{grid-column:1/-1}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.choice{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:15px;padding:14px;background:#fff;cursor:pointer;transition:.2s}
+.choice:has(input:checked){border-color:#829b5c;background:#f5f8ed}
+.choice input{width:17px;height:17px;margin:5px 0 0;accent-color:var(--accent-dark);flex-shrink:0}
+.choice strong{display:block;font-size:13px}
+.choice small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.price{font-size:12px;color:var(--accent-dark);font-weight:800;white-space:nowrap;margin-right:auto}
+.notice{background:#f0f4e9;border:1px solid #dce7ce;border-radius:14px;padding:13px 15px;color:#4f6242;font-size:12px;margin-top:18px}
+.totalbar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:white;border-radius:15px;padding:15px 17px;margin-top:17px}
+.totalbar span{font-size:12px;color:#cbd5cd}.totalbar strong{font-size:20px;color:var(--accent)}
+.actions{display:flex;justify-content:space-between;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+button{font:inherit;border:0;border-radius:12px;padding:12px 20px;cursor:pointer;font-size:13px;font-weight:800;transition:transform .15s,opacity .15s}
+button:active{transform:scale(.98)}
+.primary{background:var(--ink);color:white;min-width:145px}
+.primary:disabled{opacity:.5;cursor:not-allowed}
+.secondary{background:#edf0e9;color:var(--ink)}
+.error{color:var(--danger);font-size:12px;display:none;margin-top:12px}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sumitem{border:1px solid var(--line);border-radius:13px;padding:12px 14px;background:#fff}
+.sumitem small{display:block;color:var(--muted);font-size:11px}
+.sumitem strong{font-size:13px;overflow-wrap:anywhere}
+.success{display:none;text-align:center;padding:20px 5px}
+.success .check{width:68px;height:68px;border-radius:50%;background:var(--soft);color:var(--accent-dark);display:grid;place-items:center;font-size:32px;margin:0 auto 14px}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:22px 10px}
+@media(max-width:620px){.wrap{padding:16px 12px 35px}header{margin-bottom:17px}.hero{padding:24px 21px;border-radius:21px}.steps{grid-template-columns:1fr 1fr}.step{font-size:11px}.grid,.choices,.summary{grid-template-columns:1fr}.full{grid-column:auto}.card{border-radius:20px}.actions button{flex:1;min-width:0}.pill{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><div class="logo">⌂</div><div>خانه‌نگار <small>استودیو طراحی و معماری داخلی</small></div></div>
+  <div class="pill">فرم آنلاین مشاوره طراحی</div>
+</header>
+<section class="hero">
+  <div class="kicker">HOME DESIGN · 2026</div>
+  <h1>دعوت‌نامه طراحی خانه و معماری داخلی</h1>
+  <p>با چند قدم ساده، نیازها و سلیقه‌تان را ثبت کنید تا مسیر طراحی فضایی هماهنگ با سبک زندگی شما آماده شود.</p>
+</section>
+
+<nav class="steps" aria-label="مراحل فرم">
+  <div class="step active" data-step="0"><span class="num">۱</span><span>مشخصات پروژه</span></div>
+  <div class="step" data-step="1"><span class="num">۲</span><span>زمان مشاوره</span></div>
+  <div class="step" data-step="2"><span class="num">۳</span><span>نیازها و سبک</span></div>
+  <div class="step" data-step="3"><span class="num">۴</span><span>خدمات طراحی</span></div>
+</nav>
+
+<main class="card">
+  <section class="panel active" data-panel="0">
+    <div class="cardhead"><div class="icon">⌂</div><div><h2>گام اول: مشخصات پروژه</h2><p class="sub">برای شروع، اطلاعات پایه خانه یا فضای موردنظر را وارد کنید.</p></div></div>
+    <div class="grid">
+      <div class="field"><label for="fullname">نام و نام خانوادگی</label><input id="fullname" name="fullname" placeholder="مثال: آوا احمدی" autocomplete="name" required></div>
+      <div class="field"><label for="phone">شماره تماس</label><input id="phone" name="phone" inputmode="tel" placeholder="مثال: 09123456789" required></div>
+      <div class="field"><label for="project">نوع پروژه</label><select id="project" required><option value="">انتخاب کنید</option><option>طراحی خانه مسکونی</option><option>بازسازی آپارتمان</option><option>طراحی ویلا</option><option>طراحی یک اتاق</option><option>طراحی نمای ساختمان</option><option>فضای تجاری یا اداری</option></select></div>
+      <div class="field"><label for="area">متراژ تقریبی (متر مربع)</label><input id="area" type="number" min="1" placeholder="مثال: ۱۲۰" required></div>
+      <div class="field full"><label for="address">شهر یا محدوده پروژه <span class="hint">(اختیاری)</span></label><input id="address" placeholder="مثال: تهران، سعادت‌آباد"></div>
+    </div>
+    <div class="notice">اطلاعات این فرم در همین صفحه برای تهیه خلاصه پروژه استفاده می‌شود؛ این نسخه به سرور یا پایگاه داده متصل نیست.</div>
+    <div class="error" id="error0">لطفاً نام، شماره تماس، نوع پروژه و متراژ را تکمیل کنید.</div>
+    <div class="actions"><span></span><button class="primary next">مرحله بعد ←</button></div>
+  </section>
+
+  <section class="panel" data-panel="1">
+    <div class="cardhead"><div class="icon">▦</div><div><h2>گام دوم: زمان مشاوره</h2><p class="sub">زمان مناسب برای جلسه آشنایی و بررسی ایده‌های طراحی را انتخاب کنید.</p></div></div>
+    <div class="grid">
+      <div class="field"><label for="date">تاریخ پیشنهادی</label><input id="date" type="date" required></div>
+      <div class="field"><label for="time">بازه زمانی ترجیحی</label><select id="time"><option value="">انتخاب کنید</option><option>صبح، ۹ تا ۱۲</option><option>ظهر، ۱۲ تا ۱۵</option><option>عصر، ۱۵ تا ۱۸</option><option>فرقی ندارد</option></select></div>
+      <div class="field full"><label for="meeting">روش برگزاری جلسه</label><div class="choices">
+        <label class="choice"><input type="radio" name="meeting" value="آنلاین" checked><span><strong>جلسه آنلاین</strong><small>گفت‌وگو از راه دور</small></span></label>
+        <label class="choice"><input type="radio" name="meeting" value="حضوری"><span><strong>جلسه حضوری</strong><small>با هماهنگی قبلی</small></span></label>
+      </div></div>
+    </div>
+    <div class="notice">این تاریخ صرفاً پیشنهاد شماست و به‌معنای رزرو قطعی وقت نیست.</div>
+    <div class="error" id="error1">لطفاً تاریخ پیشنهادی را انتخاب کنید.</div>
+    <div class="actions"><button class="secondary back">→ بازگشت</button><button class="primary next">مرحله بعد ←</button></div>
+  </section>
+
+  <section class="panel" data-panel="2">
+    <div class="cardhead"><div class="icon">✳</div><div><h2>گام سوم: نیازها و سبک طراحی</h2><p class="sub">گزینه‌هایی را انتخاب کنید که به فضای ایده‌آل شما نزدیک‌ترند.</p></div></div>
+    <div class="field"><span class="field-label">سبک موردعلاقه شما</span>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="style" value="مدرن"><span><strong>مدرن</strong><small>خطوط ساده و فرم‌های تمیز</small></span></label>
+        <label class="choice"><input type="radio" name="style" value="مینیمال"><span><strong>مینیمال</strong><small>سادگی و خلوتی بصری</small></span></label>
+        <label class="choice"><input type="radio" name="style" value="اسکاندیناوی"><span><strong>اسکاندیناوی</strong><small>نور طبیعی و متریال گرم</small></span></label>
+        <label class="choice"><input type="radio" name="style" value="کلاسیک"><span><strong>کلاسیک</strong><small>جزئیات ظریف و متقارن</small></span></label>
+        <label class="choice"><input type="radio" name="style" value="معاصر"><span><strong>معاصر</strong><small>ترکیبی از ایده‌های روز</small></span></label>
+        <label class="choice"><input type="radio" name="style" value="نیاز به راهنمایی دارم"><span><strong>هنوز مطمئن نیستم</strong><small>نیاز به پیشنهاد طراح دارم</small></span></label>
+      </div>
+    </div>
+    <div class="field" style="margin-top:20px"><span class="field-label">فضاهایی که می‌خواهید طراحی شوند</span>
+      <div class="choices">
+        <label class="choice"><input type="checkbox" name="rooms" value="پذیرایی و نشیمن"><span><strong>پذیرایی و نشیمن</strong><small>چیدمان و نورپردازی</small></span></label>
+        <label class="choice"><input type="checkbox" name="rooms" value="آشپزخانه"><span><strong>آشپزخانه</strong><small>کابینت و گردش کار</small></span></label>
+        <label class="choice"><input type="checkbox" name="rooms" value="اتاق خواب"><span><strong>اتاق خواب</strong><small>آرامش و فضای ذخیره‌سازی</small></span></label>
+        <label class="choice"><input type="checkbox" name="rooms" value="حمام و سرویس"><span><strong>حمام و سرویس</strong><small>متریال و جزئیات اجرایی</small></span></label>
+        <label class="choice"><input type="checkbox" name="rooms" value="نمای بیرونی"><span><strong>نمای بیرونی</strong><small>هویت و ظاهر ساختمان</small></span></label>
+        <label class="choice"><input type="checkbox" name="rooms" value="محوطه و حیاط"><span><strong>محوطه و حیاط</strong><small>فضای سبز و نشیمن بیرونی</small></span></label>
+      </div>
+    </div>
+    <div class="field" style="margin-top:20px"><label for="notes">توضیحات تکمیلی <span class="hint">(اختیاری)</span></label><textarea id="notes" placeholder="مثلاً رنگ‌های موردعلاقه، نیازهای خانواده یا محدودیت‌های فضا..."></textarea></div>
+    <div class="actions"><button class="secondary back">→ بازگشت</button><button class="primary next">مرحله بعد ←</button></div>
+  </section>
+
+  <section class="panel" data-panel="3">
+    <div class="cardhead"><div class="icon">◇</div><div><h2>گام چهارم: خدمات طراحی</h2><p class="sub">خدمات موردنیازتان را انتخاب کنید. هزینه‌ها در این نمونه، امتیاز فرضی هستند.</p></div></div>
+    <div class="choices">
+      <label class="choice"><input type="checkbox" name="services" value="پلان و چیدمان" data-price="3"><span><strong>پلان و چیدمان</strong><small>تقسیم‌بندی و جانمایی فضا</small></span><span class="price">۳ امتیاز</span></label>
+      <label class="choice"><input type="checkbox" name="services" value="طراحی سه‌بعدی" data-price="5"><span><strong>طراحی سه‌بعدی</strong><small>تصویرسازی فضای پیشنهادی</small></span><span class="price">۵ امتیاز</span></label>
+      <label class="choice"><input type="checkbox" name="services" value="طراحی نورپردازی" data-price="2"><span><strong>طراحی نورپردازی</strong><small>نور عمومی و تأکیدی</small></span><span class="price">۲ امتیاز</span></label>
+      <label class="choice"><input type="checkbox" name="services" value="انتخاب متریال" data-price="2"><span><strong>انتخاب متریال</strong><small>رنگ، کف‌پوش و پوشش دیوار</small></span><span class="price">۲ امتیاز</span></label>
+      <label class="choice"><input type="checkbox" name="services" value="طراحی مبلمان سفارشی" data-price="3"><span><strong>مبلمان سفارشی</strong><small>ایده‌پردازی برای مبلمان و کمد</small></span><span class="price">۳ امتیاز</span></label>
+      <label class="choice"><input type="checkbox" name="services" value="نقشه اجرایی" data-price="4"><span><strong>نقشه‌های اجرایی</strong><small>جزئیات لازم برای اجرا</small></span><span class="price">۴ امتیاز</span></label>
+    </div>
+    <div class="totalbar"><div><span>مجموع خدمات انتخاب‌شده</span><div style="font-size:11px;color:#b9c6bc">برآورد نمایشی فرم</div></div><strong><b id="total">۰</b> امتیاز</strong></div>
+    <div class="notice">امتیازها فقط برای نمایش عملکرد فرم هستند و قیمت واقعی خدمات معماری محسوب نمی‌شوند.</div>
+    <div class="actions"><button class="secondary back">→ بازگشت</button><button class="primary" id="review">مشاهده و تأیید نهایی ←</button></div>
+  </section>
+
+  <section class="panel" data-panel="4">
+    <div class="cardhead"><div class="icon">✓</div><div><h2>برگه تأیید نهایی پروژه</h2><p class="sub">اطلاعات را مرور کنید و فایل خلاصه پروژه را در دستگاه خود ذخیره کنید.</p></div></div>
+    <div class="summary" id="summary"></div>
+    <div class="notice">با انتخاب «دانلود خلاصه پروژه»، یک فایل متنی از اطلاعات واردشده ساخته می‌شود. اطلاعات به‌صورت خودکار به جایی ارسال نمی‌شوند.</div>
+    <div class="success" id="success"><div class="check">✓</div><h2>خلاصه پروژه آماده است</h2><p class="sub">می‌توانید فایل را ذخیره کنید یا فرم را از ابتدا پر کنید.</p></div>
+    <div class="actions" id="finalActions"><button class="secondary back">→ بازگشت</button><button class="primary" id="download">دانلود خلاصه پروژه ↓</button></div>
+    <div class="actions" style="border-top:0;padding-top:0"><button class="secondary" id="restart">شروع دوباره ↻</button></div>
+  </section>
+</main>
+<footer>خانه‌نگار · ایده‌های خوب، خانه‌های بهتر <br>نمونه نمایشی قابل اجرا در مرورگر · بدون نیاز به کتابخانه خارجی</footer>
+</div>
+<script>
+const panels=[...document.querySelectorAll('.panel')];
+const steps=[...document.querySelectorAll('.step')];
+let current=0;
+const $=id=>document.getElementById(id);
+const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+function showStep(n){
+ current=n;
+ panels.forEach((p,i)=>p.classList.toggle('active',i===n));
+ steps.forEach((s,i)=>{s.classList.toggle('active',i===n && n<4);s.classList.toggle('done',i<n);});
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function validate(n){
+ const err=$('error'+n); if(err)err.style.display='none';
+ let ok=true;
+ if(n===0){
+   ok=$('fullname').value.trim()!=='' && $('phone').value.trim()!=='' && $('project').value!=='' && Number($('area').value)>0;
+   if(ok && $('phone').value.trim().length<8)ok=false;
+ }else if(n===1){ok=$('date').value!=='';}
+ if(!ok&&err)err.style.display='block';
+ return ok;
+}
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>{if(validate(current))showStep(Math.min(current+1,3));}));
+document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',()=>showStep(Math.max(current-1,0))));
+function updateTotal(){
+ const total=[...document.querySelectorAll('input[name="services"]:checked')].reduce((s,x)=>s+Number(x.dataset.price||0),0);
+ $('total').textContent=fa(total);
+}
+document.querySelectorAll('input[name="services"]').forEach(x=>x.addEventListener('change',updateTotal));
+function val(id, fallback='—'){const el=$(id);return el&&el.value.trim()?el.value.trim():fallback}
+function selected(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value)}
+function getData(){
+ const services=[...document.querySelectorAll('input[name="services"]:checked')];
+ return {
+ 'نام و نام خانوادگی':val('fullname'),
+ 'شماره تماس':val('phone'),
+ 'نوع پروژه':val('project'),
+ 'متراژ تقریبی':val('area')+' متر مربع',
+ 'شهر یا محدوده':val('address'),
+ 'تاریخ پیشنهادی':val('date'),
+ 'بازه زمانی':val('time'),
+ 'روش جلسه':document.querySelector('input[name="meeting"]:checked')?.value||'—',
+ 'سبک طراحی':document.querySelector('input[name="style"]:checked')?.value||'انتخاب نشده',
+ 'فضاهای انتخابی':selected('rooms').join('، ')||'انتخاب نشده',
+ 'خدمات انتخابی':services.map(x=>x.value).join('، ')||'انتخاب نشده',
+ 'مجموع امتیاز نمایشی':services.reduce((s,x)=>s+Number(x.dataset.price||0),0)+' امتیاز',
+ 'توضیحات':val('notes')
+ };
+}
+function makeSummary(){
+ const data=getData();
+ $('summary').innerHTML=Object.entries(data).map(([k,v])=>`<div class="sumitem"><small>${escapeHtml(k)}</small><strong>${escapeHtml(v)}</strong></div>`).join('');
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('review').addEventListener('click',()=>{makeSummary();showStep(4);});
+$('download').addEventListener('click',()=>{
+ const data=getData();
+ const body='خلاصه پروژه طراحی خانه‌نگار\n'+'='.repeat(28)+'\n\n'+Object.entries(data).map(([k,v])=>k+': '+v).join('\n')+'\n\nاین فایل توسط فرم محلی ساخته شده است.';
+ const blob=new Blob(['\ufeff'+body],{type:'text/plain;charset=utf-8'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');
+ a.href=url;a.download='khanenegar-project-summary.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+ $('success').style.display='block';$('finalActions').style.display='none';
+});
+$('restart').addEventListener('click',()=>{
+ document.querySelectorAll('input').forEach(x=>{if(x.type==='checkbox'||x.type==='radio')x.checked=x.type==='radio'&&x.name==='meeting'&&x.value==='آنلاین';else x.value='';});
+ document.querySelectorAll('select,textarea').forEach(x=>x.value='');
+ $('success').style.display='none';$('finalActions').style.display='flex';document.querySelectorAll('.error').forEach(e=>e.style.display='none');updateTotal();showStep(0);
+});
+const today=new Date();const localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);$('date').min=localDate;
+</script>
+</body>
+</html>
